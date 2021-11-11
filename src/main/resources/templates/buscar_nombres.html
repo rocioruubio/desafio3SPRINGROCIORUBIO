@@ -1,0 +1,24 @@
+<html>
+
+<body>
+	<table class="table" border="1" align="center" width=50%>
+		<h1 align="center">Clientes</h1>
+		<br>
+		<thead align="center">
+			<th>ID</th>
+			<th>Nombre</th>
+			<th>Apellidos</th>
+			<th>Fecha_Nacimiento</th>
+			<th>DNI</th>
+		</thead>
+		<tbody>
+			<tr th:each="genero : ${nombre}" align="center">
+				<td th:text="${genero.id}">Id fallida</td>
+				<td><a href="#" th:href="@{'/film/search/genre/' + ${genero.nombre}}" th:text="${genero.nombre}">Genero perdido</a></td>
+			</tr>
+	</table>
+	</tbody>
+	</table>
+</body>
+
+</html>

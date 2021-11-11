@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.desafio3SpringRRL.entities.Cliente;
-import com.example.desafio3SpringRRL.entities.ClienteDAOImpl;
 import com.example.desafio3SpringRRL.repository.Repository;
 
 @Service
@@ -15,23 +14,19 @@ public class ClienteServiceImpl implements ClienteServiceI {
 	@Autowired
 	Repository repository;
 	
-	@Autowired
-	ClienteDAOImpl clientedaoimpl;
-	
 	@Override
 	public Cliente add(Cliente c) {
-		
-		return clientedaoimpl.add(c);
+		return repository.save(c);
 	}
 
 	@Override
 	public Cliente edit(Cliente e) {
-		return clientedaoimpl.edit(e);
+		return repository.save(e);
 	}
 
 	@Override
-	public void deleteCliente(Cliente id) {
-		clientedaoimpl.deleteCliente(id);
+	public void deleteCliente(Long cliente) {
+		repository.deleteById(cliente);
 	}
 
 	@Override
@@ -42,6 +37,11 @@ public class ClienteServiceImpl implements ClienteServiceI {
 	@Override
 	public Cliente findByApll(String apellidos) {
 		return repository.findByApll(apellidos);
+	}
+
+	@Override
+	public List<Cliente> findAll() {
+		return repository.findAll();
 	}
 
 }

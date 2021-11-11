@@ -6,7 +6,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.desafio3SpringRRL.entities.Cliente;
-import com.example.desafio3SpringRRL.entities.ClienteDAOI;
 import com.example.desafio3SpringRRL.service.ClienteServiceImpl;
 
 @SpringBootApplication

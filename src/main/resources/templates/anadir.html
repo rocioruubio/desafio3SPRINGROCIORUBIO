@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+	<!-- Bootstrap core CSS -->
+	<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+	<div class="row">
+		<form class="input-field col s12" method="post" action="#" th:action="@{/add/submit}" th:object="${clienteNuevo}">
+			<div class="row">
+				<div class="input-field col s6" th:classappend="${#fields.hasErrors('nombre')} ? 'has-error'">
+					<label for="id">Nombre del cliente</label>
+					<input type="text" class="form-control" id="nombre" placeholder="nombre" th:field="*{nombre}">
+					<span th:if="${#fields.hasErrors('nombre')}" th:errors="*{id}" class="help-block" id="id-error" style="color:red">Errores</span>
+				</div>
+				<div class="input-field col s6" th:classappend="${#fields.hasErrors('apellidos')} ? 'has-error'">
+					<label for="title">Apellidos Cliente</label>
+					<input type="text" class="form-control" id="apellidos" placeholder="apellidos" th:field="*{apellidos}">
+					<span th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}" class="help-block" id="id-error" style="color:red">Errores</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12" th:classappend="${#fields.hasErrors('fechaNacimiento')} ? 'has-error'">
+					<label for="year">Fecha de nacimiento</label>
+					<input type="text" class="form-control" id="fechaNacimiento" placeholder="fechaNacimiento" th:field="*{fechaNacimiento}" >
+					<span th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}" class="help-block" id="id-error" style="color:red">Errores</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="input-field col s12" th:classappend="${#fields.hasErrors('DNI')} ? 'has-error'">
+					<label for="year">DNI</label>
+					<input type="text" class="form-control" id="DNI" placeholder="DNI" th:field="*{DNI}" >
+					<span th:if="${#fields.hasErrors('DNI')}" th:errors="*{DNI}" class="help-block" id="id-error" style="color:red">Errores</span>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-default">Añadir</button>
+		</form>
+	</div>
+	<!--JavaScript at end of body for optimized loading-->
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+
+</html>

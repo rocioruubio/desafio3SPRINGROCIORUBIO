@@ -1,0 +1,33 @@
+<html>
+
+<body>
+	<table class="table" border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NOMBRE</th>
+				<th>APELLIDOS</th>
+				<th>FECHA_NACIMIENTO</th>
+				<th>DNI</th>
+		</thead>
+		<tbody>
+				<tr th:each="cliente : ${cliente}">
+					<td th:text="*{cliente.id}">ID</td>
+					<td th:text="*{cliente.nombre}">NOMBRE</td>
+					<td th:text="*{cliente.apellidos}">APELLIDOS</td>
+					<td th:text="*{cliente.fechaNacimiento}">FECHA_NACIMIENTO</td>
+					<td th:text="*{cliente.DNI}">DNI</td>
+						
+				</tr>
+				<form class="input-field col s12" method="post" action="#" th:action="@{/delete/submit}">
+					<td><button type="submit" class="btn btn-default">ELIMINAR</button><td>
+					<div class="form-group">
+						<label for="id">ID</label> <input type="text" name="idBorrar" th:value="${idBorrar}">
+					</div>
+				</form>
+		</tbody>
+	</table>
+
+</body>
+
+</html>
